@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body style="margin: 0%;">
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+
+<script>
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+var firebaseConfig = {
+  apiKey: "AIzaSyDX9xB9Z4rR5xSv2SyPez98jsF8dVr-IeI",
+  authDomain: "mindhub---mobile.firebaseapp.com",
+  databaseURL: "https://mindhub---mobile.firebaseio.com",
+  projectId: "mindhub---mobile",
+  storageBucket: "mindhub---mobile.appspot.com",
+  messagingSenderId: "441090161082",
+  appId: "1:441090161082:web:f3da6fa409367f273e4583",
+  measurementId: "G-V6BTG9P8NV"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
+</script>
+  </body>
+  <script>
+
+    
+  </script>
+</html>
