@@ -4,8 +4,8 @@
   <div class="circle" id="circle2"></div>
   <div class="circle" id="circle3"></div>
     <div id="optionDiv">
-        <button v-on:click="saludar" id="si" class="button nonActive" type="button">Sign in</button>
-        <button v-on:click="saludar" id="su" class="button active" type="button">Sign up</button>
+        <button v-on:click="saludar" id="si" class="button active" type="button">Sign in</button>
+        <button v-on:click="saludar" id="su" class="button nonActive " type="button">Sign up</button>
     </div>
        <HelloWorld v-if="active === 0" msg="Login"/>
        <HelloWorld  v-else msg="Sign up"/>
@@ -31,7 +31,7 @@ export default {
   },
   data: function () {
      return {
-       active: 1
+       active: 0
      }
   },
   methods: {

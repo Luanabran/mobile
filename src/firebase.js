@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import 'firebase/app';
 import 'firebase/auth';
 
+
 var firebaseConfig = {
     apiKey: "AIzaSyDX9xB9Z4rR5xSv2SyPez98jsF8dVr-IeI",
     authDomain: "mindhub---mobile.firebaseapp.com",

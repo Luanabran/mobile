@@ -8,19 +8,19 @@
       <h1>Registration</h1>
 
     </div>
-    <RegistrationForm />
+    <SignUpForm />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import RegistrationForm from '@/components/RegistrationForm.vue'
+import SignUpForm from '@/components/SignUpForm.vue'
 
 
 export default {
   name: 'Registration',
   components: {
-    RegistrationForm,
+    SignUpForm,
     
   },
   data: function () {

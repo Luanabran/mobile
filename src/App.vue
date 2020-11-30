@@ -3,8 +3,11 @@
     
     <router-view/>
     <div class="bottomBarContainer">
+      <div v-if="login === 1 && !user">
+        <button v-on:click="goToLogin" id="loginAppButton">Login</button>
+      </div>
       <div v-if="login === 1" id="bottomBar"> 
-          <router-link class="link" to="/About">  <PhHouse :size="48" weight="bold" /></router-link>
+          <router-link class="link" to="/">  <PhHouse :size="48" weight="bold" /></router-link>
           <router-link class="link" to="/contact">  <PhAt :size="48"  weight="bold" /> </router-link>
           <router-link class="link" to="/gameInfo">  <PhCalendarX :size="48" weight="bold" /> </router-link>
           <router-link class="link" to="/location"> <PhMapPinLine :size="48" weight="bold" /></router-link>
@@ -19,7 +22,10 @@
 <script>
 // @ is an alias to /src
  import { PhHouse, PhAt, PhCalendarX, PhMapPinLine,PhSignIn, PhArticle} from "phosphor-vue";
-  
+  import firebase from "firebase/app";
+import 'firebase/app';
+import 'firebase/auth';
+
 export default {
   name: 'App',
   components: {
@@ -33,7 +39,8 @@ export default {
   },
   data: function () {
      return {
-       login: 1
+       login: 1,
+       user: true
      }
   },
   methods: {
@@ -45,21 +52,32 @@ export default {
       } else {
         this.login = 1;
       }
-    }
+    },
+     goToLogin(){
+    this.$router.push('/login')
+    },
   },
   beforeMount(){
+    //  if(this.user){
+      // firebase.auth().signOut()
+    // }
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+          // User is signed in.   
+          this.user=user
+      } else {
+          // No user is signed in.
+          this.user=null
+      } 
+    });
     this.setCurrentRoute()
   },
   watch:{
-    $route (to, from){
+    $route (to){
       const route = this.$router.currentRoute
-
-       console.log(to)
-       console.log(from)
-       console.log(route)
       this.setCurrentRoute(to)
 
-      if(route.name === 'About' || route.name === 'Rules'){
+      if(route.name === '/' || route.name === 'Rules'){
         document.getElementById('app').style.overflow = 'visible';
       } else {
         document.getElementById('app').style.overflow = 'hidden';
@@ -80,6 +98,15 @@ export default {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+}
+
+#loginAppButton{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 7px;
+    color: wheat;
+    background-color: #ea4a4a;
 }
 
 .bottomBarContainer {

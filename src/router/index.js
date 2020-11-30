@@ -9,12 +9,12 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/login',
     name: 'LoginView',
     component: LoginView
   },
   {
-    path: '/about',
+    path: '/',
     name: 'About',
     component: () => import('../views/About.vue')
   },
@@ -42,14 +42,11 @@ const routes = [
     path: '/location',
     name: 'Location',
     component: () => import('../views/Location.vue'),
-    meta: {
-      requiresAuth: true
-    },
   },
   {
-    path: '/messages',
-    name: 'Messages',
-    component: () => import('../views/MessageView.vue'),
+    path: '/posts/:id',
+    name: 'Posts',
+    component: () => import('../views/Posts.vue'),
     meta: {
       requiresAuth: true
     },

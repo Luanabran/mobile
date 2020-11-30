@@ -23,12 +23,11 @@ export default {
   },
   methods: {
     logIn() {
-      console.log(this)
       firebase
         .auth()
         .signInWithEmailAndPassword(this.email, this.password)
           .then( () =>  {
-            this.$router.replace('About')
+            this.$router.replace('/')
           })
           .catch(function(error) {
             console.log(error.message)
